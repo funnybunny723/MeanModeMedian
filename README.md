@@ -12,8 +12,19 @@ public static void main(String[] args){
 
 public double getMean(int[] array){
   double mean = 0;
-  for(int i = 0; i < array.length(); i++){
+  for(int i = 0; i < array.length; i++){
     mean += array[i];
   }
-  return mean/array.length();
+  return mean/array.length;
+}
+
+public int getMedian(int[] array){
+  int[] ordered = new int[array.length];
+  for(int i = 1; i < array.length; i++){
+		int temp = array[i];
+		for(int j = i-1 ;j >=0 && temp.compareTo(array[j]) <0; j--){
+			array[j+1] = array[j];
+		}array[j+1] = temp;
+	}ordered = array;
+	return array[array.length/2];
 }
